@@ -1,0 +1,323 @@
+/* ============================================ */
+/* SEVENOFHEARTS BOT PAGE THEME */
+/* Based on custom HTML structure */
+/* ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --soh-bg: #0a0a14;
+    --soh-font-mono: 'Space Mono', monospace;
+    --soh-font-hand: 'Space Grotesk', sans-serif;
+    --soh-radius: 16px;
+    --soh-accent: #fbbf24;
+    --soh-accent-soft: #f59e0b;
+    --soh-purple: #7c3aed;
+    --soh-purple-soft: #a855f7;
+    --soh-blue: #60a5fa;
+    --soh-wine: rgba(15,52,96,0.88);
+    --soh-glass: rgba(26,26,46,0.92);
+    --soh-text: rgba(203,213,225,0.9);
+}
+
+/* ===== HIDE CHUB DEFAULT ELEMENTS ===== */
+div[length][color]:has(.msg-mkdn-container) {
+    max-height: none !important;
+    overflow: visible !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+div[length][color]:has(.msg-mkdn-container)::before,
+div[length][color]:has(.msg-mkdn-container)::after {
+    display: none !important;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes sohFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== BACKGROUND ===== */
+body::before {
+    content: "" !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: url('https://files.catbox.moe/1bfel3.png') !important;
+    background-size: 500px 500px !important;
+    background-repeat: repeat !important;
+    background-position: 0 0 !important;
+    background-attachment: fixed !important;
+    filter: blur(2px) !important;
+    z-index: 0 !important;
+    opacity: 0.85 !important;
+    pointer-events: none !important;
+}
+
+body {
+    background-color: #050510 !important;
+    min-height: 100dvh !important;
+}
+
+#root,
+.ant-layout,
+.ant-layout-content,
+main.ant-layout-content {
+    background: transparent !important;
+    background-color: transparent !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== GRID SYSTEM ===== */
+.soh-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.soh-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.soh-col-12,
+.soh-col-6 {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+
+.soh-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.soh-col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+@media (max-width: 768px) {
+    .soh-col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* ===== TITLE SECTION ===== */
+.soh-title-wrapper {
+    text-align: center;
+    margin: 30px auto 15px;
+    animation: sohFadeInUp 0.6s ease-out;
+}
+
+.soh-title-box {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(124,58,237,0.5), rgba(96,165,250,0.5));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px solid var(--soh-purple);
+    border-radius: 14px;
+    padding: 18px 45px;
+    box-shadow: 0 8px 32px rgba(124,58,237,0.7), 0 0 50px rgba(168,85,247,0.5);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.soh-title-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--soh-accent), transparent);
+}
+
+.soh-title-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--soh-blue), transparent);
+}
+
+.soh-title {
+    color: var(--soh-accent);
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(251,191,36,0.8);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: var(--soh-font-hand);
+}
+
+/* ===== BANNER ===== */
+.soh-banner {
+    width: 100%;
+    margin: 20px auto;
+    border: 4px solid var(--soh-purple);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(124,58,237,0.8), 0 0 60px rgba(168,85,247,0.6);
+    background: linear-gradient(135deg, var(--soh-glass), var(--soh-wine));
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+    animation: sohFadeInUp 0.7s ease-out 0.1s both;
+}
+
+.soh-banner:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 56px rgba(124,58,237,1), 0 0 80px rgba(168,85,247,0.8);
+}
+
+.soh-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--soh-accent), transparent);
+}
+
+.soh-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-height: 200px;
+    object-fit: cover;
+}
+
+/* ===== GREETING CARDS ===== */
+.soh-greetings {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 25px auto;
+    animation: sohFadeInUp 0.8s ease-out 0.2s both;
+}
+
+.soh-greeting-card {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 280px;
+    max-width: 440px;
+    background: linear-gradient(135deg, var(--soh-wine), var(--soh-glass));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px solid var(--soh-blue);
+    border-radius: var(--soh-radius);
+    padding: 24px;
+    box-shadow: 0 8px 28px rgba(96,165,250,0.5), inset 0 2px 8px rgba(168,85,247,0.2);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+.soh-greeting-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--soh-purple), transparent);
+}
+
+.soh-greeting-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--soh-purple);
+    box-shadow: 0 16px 48px rgba(124,58,237,0.8);
+}
+
+.soh-greeting-title {
+    color: var(--soh-accent);
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 15px rgba(251,191,36,0.8);
+    font-family: var(--soh-font-hand);
+}
+
+.soh-greeting-description {
+    color: var(--soh-text);
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: var(--soh-font-hand);
+}
+
+/* ===== INFO SECTION ===== */
+.soh-info {
+    margin: 35px auto;
+    background: linear-gradient(135deg, var(--soh-glass), var(--soh-wine));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 4px solid var(--soh-purple);
+    border-radius: var(--soh-radius);
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(124,58,237,0.8), 0 0 60px rgba(168,85,247,0.6);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+    animation: sohFadeInUp 0.9s ease-out 0.3s both;
+}
+
+.soh-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--soh-accent), transparent);
+}
+
+.soh-info::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--soh-blue), transparent);
+}
+
+.soh-info:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 56px rgba(124,58,237,1), 0 0 80px rgba(168,85,247,0.8);
+}
+
+.soh-info-title {
+    color: var(--soh-accent);
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    text-shadow: 0 0 20px rgba(251,191,36,0.8);
+    border-bottom: 2px solid rgba(96,165,250,0.3);
+    padding-bottom: 12px;
+    font-family: var(--soh-font-hand);
+}
+
+.soh-info-content {
+    color: var(--soh-text);
+    font-size: 15px;
+    line-height: 1.8;
+    font-family: var(--soh-font-hand);
+}
