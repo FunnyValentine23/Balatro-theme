@@ -1,0 +1,318 @@
+/* ============================================ */
+/* SEVENOFHEARTS PROFILE THEME */
+/* Based on custom HTML structure */
+/* ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --soh-bg: #0a0a14;
+    --soh-font-mono: 'Space Mono', monospace;
+    --soh-font-hand: 'Space Grotesk', sans-serif;
+    --soh-radius: 16px;
+    --soh-accent: #fbbf24;
+    --soh-accent-soft: #f59e0b;
+    --soh-purple: #7c3aed;
+    --soh-purple-soft: #a855f7;
+    --soh-blue: #60a5fa;
+    --soh-wine: rgba(15,52,96,0.88);
+    --soh-glass: rgba(26,26,46,0.92);
+    --soh-text: rgba(203,213,225,0.9);
+}
+
+/* ===== HIDE CHUB DEFAULT ELEMENTS ===== */
+.ant-col.text-left.ant-col-xs-24.ant-col-lg-6 {
+    flex: 0 0 0px !important;
+    max-width: 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+.ant-col.ant-col-xs-24.ant-col-lg-18 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+
+div[length][color]:has(.msg-mkdn-container) {
+    max-height: none !important;
+    overflow: visible !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+div[length][color]:has(.msg-mkdn-container)::before,
+div[length][color]:has(.msg-mkdn-container)::after {
+    display: none !important;
+}
+
+div[length][color]:has(.msg-mkdn-container) ~ * {
+    display: none !important;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes sohFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sohShimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* ===== BACKGROUND ===== */
+body::before {
+    content: "" !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: url('https://files.catbox.moe/1bfel3.png') !important;
+    background-size: 500px 500px !important;
+    background-repeat: repeat !important;
+    background-position: 0 0 !important;
+    background-attachment: fixed !important;
+    filter: blur(2px) !important;
+    z-index: 0 !important;
+    opacity: 0.85 !important;
+    pointer-events: none !important;
+}
+
+body {
+    background-color: #050510 !important;
+    min-height: 100dvh !important;
+}
+
+#root,
+.ant-layout,
+.ant-layout-content,
+main.ant-layout-content {
+    background: transparent !important;
+    background-color: transparent !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== GRID SYSTEM ===== */
+.soh-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.soh-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.soh-col-12,
+.soh-col-6,
+.soh-col-4,
+.soh-col-3 {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.soh-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.soh-col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.soh-col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.soh-col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+@media (max-width: 768px) {
+    .soh-col-6,
+    .soh-col-4,
+    .soh-col-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* ===== SECTION HEADER ===== */
+.soh-section-header {
+    background: linear-gradient(135deg, var(--soh-wine), var(--soh-glass));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px solid var(--soh-blue);
+    border-radius: var(--soh-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    animation: sohFadeInUp 0.6s ease-out;
+    transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+.soh-section-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(96,165,250,0.3), transparent);
+    transition: left 0.8s;
+}
+
+.soh-section-header:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 56px rgba(124,58,237,0.7), 0 0 80px rgba(96,165,250,0.6);
+    border-color: var(--soh-purple);
+}
+
+.soh-section-header:hover::before {
+    left: 100%;
+}
+
+.soh-section-header img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--soh-purple);
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(124,58,237,0.6);
+    transition: all 0.4s ease;
+}
+
+.soh-section-header img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(124,58,237,0.8);
+}
+
+.soh-section-title {
+    color: var(--soh-accent);
+    font-weight: bold;
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(251,191,36,0.8);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--soh-font-hand);
+}
+
+.soh-section-subtitle {
+    color: var(--soh-text);
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 500;
+    font-family: var(--soh-font-hand);
+}
+
+/* ===== CARD LINK ===== */
+.soh-card-link {
+    background: linear-gradient(135deg, var(--soh-wine), var(--soh-glass));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px solid var(--soh-blue);
+    border-radius: var(--soh-radius);
+    padding: 0;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+    box-shadow: 0 8px 28px rgba(96,165,250,0.4);
+    animation: sohFadeInUp 0.7s ease-out;
+}
+
+.soh-card-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(96,165,250,0.2));
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.soh-card-link:hover {
+    transform: translateY(-12px) scale(1.06);
+    border-color: var(--soh-accent);
+    box-shadow: 0 20px 60px rgba(124,58,237,0.8), 0 0 80px rgba(96,165,250,0.7);
+    z-index: 10;
+}
+
+.soh-card-link:hover::after {
+    opacity: 1;
+}
+
+.soh-card-img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--soh-purple);
+    display: block;
+}
+
+.soh-card-body {
+    padding: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.soh-card-title {
+    color: var(--soh-accent);
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(251,191,36,0.7);
+    font-family: var(--soh-font-hand);
+}
+
+.soh-card-description {
+    color: var(--soh-text);
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+    font-family: var(--soh-font-hand);
+}
+
+/* ===== PROFILE NOTICE ===== */
+.soh-notice {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    color: var(--soh-text);
+    font-family: var(--soh-font-mono);
+    font-size: 14px;
+    opacity: 0.8;
+}
