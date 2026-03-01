@@ -1,5 +1,5 @@
 
-.div .repos-div{
+.div.repos-div{
     display: flex;
     flex-wrap: wrap;
     border: 2px solid black;
@@ -8,7 +8,7 @@
 }
 
 
-.div .Repos-div.block-1{
+.div.Repos-div.block-1{
     display: inline-block;
     flex-wrap: wrap;
     border: 2px solid #60a5fa;
@@ -17,11 +17,11 @@
     transition: transform 0.3s; 
 }
 
-.div .Repos-div.block-1:hover{
+.div.Repos-div.block-1:hover{
     transform: scale(1.05);
 }
 
-.div .Repo-1-MISC{
+.div.Repo-1-MISC{
     display: inline-block;
     border: 2px #a855f7 solid;
     border-radius: 10px;
@@ -33,7 +33,7 @@
 }
 
 
-.div #Repo-1-MISC-Image{
+.div#Repo-1-MISC-Image{
     overflow: hidden;
     display: inline-block;
     width:128px;
@@ -41,26 +41,26 @@
     border-radius: 9px;
 }
 
-.div #Repo-1-MISC-Image img{
+.div#Repo-1-MISC-Image img{
     display: block;
     width: 100%;
     Height: 100%;
     object-fit: cover;
 }
 
-.div #Repo-1-MISC-Title{
+.div#Repo-1-MISC-Title{
     text-align: center;
     color: #fbbf24;
     text-shadow: 0px 0px 5px #fbbf24;
 }
 
-.div #Repo-1-MISC-Description{
+.div#Repo-1-MISC-Description{
     text-align: center;
     margin: 5px 0px 0px 0px;
 }
 
 
-.div #Repo-2-I{
+.div#Repo-2-I{
     display: inline-block;
     border: 2px black solid;
     width: 128px;
